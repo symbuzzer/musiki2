@@ -2,7 +2,7 @@
     "name": "musiki2.symbuzzer",
     "description": "Youtube Music shortcut for Ubuntu Touch ",
     "architecture": "@CLICK_ARCH@",
-    "title": "musiki2",
+    "title": "Youtube Music",
     "hooks": {
         "musiki2": {
             "apparmor": "musiki2.apparmor",
