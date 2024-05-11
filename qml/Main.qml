@@ -15,7 +15,7 @@
  */
 
 /*
- * Modified for uttestwebapp app by Ali BEYAZ under GNU GPL v3
+ * Modified for musiki2 app by Ali BEYAZ under GNU GPL v3
  */
 
 
@@ -27,17 +27,36 @@ import Morph.Web 0.1
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import QtWebEngine 1.7
+import GSettings 1.0
 
 
 MainView {
     id: root
     objectName: 'mainView'
-    applicationName: 'uttestwebapp.symbuzzer'
+    applicationName: 'musiki2.symbuzzer'
     theme.name: "Lomiri.Components.Themes.SuruDark"
     automaticOrientation: true
 
     width: units.gu(45)
     height: units.gu(75)
+
+    function checkAppLifecycleExemption() {
+        const appid = "musiki2.symbuzzer";
+        const exemptedAppidList = gsettings.lifecycleExemptAppids;
+        if (!exemptedAppidList) {
+            return false;
+        }
+        return exemptedAppidList.includes(appid);
+    }
+
+    function setAppLifecycleExemption() {
+        const appid = "musiki2.symbuzzer";
+        if (!root.checkAppLifecycleExemption()) {
+            const exemptedAppidList = gsettings.lifecycleExemptAppids || [];
+            exemptedAppidList.push(appid);
+            gsettings.lifecycleExemptAppids = exemptedAppidList;
+        }
+    }
 
     Page {
         anchors.fill: parent
@@ -47,7 +66,7 @@ MainView {
         anchors.fill: parent
         width: units.gu(45)
         height: units.gu(75)
-        url: "https://avalibeyaz.com/browser/"
+        url: "https://music.youtube.com/"
         zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
         profile: webViewProfile
     }
@@ -61,7 +80,7 @@ MainView {
         httpUserAgent: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.196 Mobile Safari/537.36";
         property alias dataPath: webViewProfile.persistentStoragePath
         dataPath: dataLocation
-        persistentStoragePath: "/home/phablet/.cache/uttestwebapp.symbuzzer/QtWebEngine"
+        persistentStoragePath: "/home/phablet/.cache/musiki2.symbuzzer/QtWebEngine"
 
     }
 
