@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(uttestwebapp C CXX)
+project(musiki2 C CXX)
 
 # Automatically create moc files
 set(CMAKE_AUTOMOC ON)
@@ -11,8 +11,8 @@ execute_process(
 )
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
-set(PROJECT_NAME "uttestwebapp")
-set(FULL_PROJECT_NAME "uttestwebapp.symbuzzer")
+set(PROJECT_NAME "musiki2")
+set(FULL_PROJECT_NAME "musiki2.symbuzzer")
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 
