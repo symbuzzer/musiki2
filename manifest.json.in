@@ -1,15 +1,15 @@
 {
-    "name": "uttestwebapp.symbuzzer",
-    "description": "Simple test web app for Ubuntu Touch",
+    "name": "musiki2.symbuzzer",
+    "description": "Youtube Music shortcut for Ubuntu Touch ",
     "architecture": "@CLICK_ARCH@",
-    "title": "uttestwebapp",
+    "title": "musiki2",
     "hooks": {
-        "uttestwebapp": {
-            "apparmor": "uttestwebapp.apparmor",
-            "desktop":  "uttestwebapp.desktop"
+        "musiki2": {
+            "apparmor": "musiki2.apparmor",
+            "desktop":  "musiki2.desktop"
         }
     },
-    "version": "1.0.3",
+    "version": "1.1.0",
     "maintainer": "Ali BEYAZ <alipolatbeyaz@gmail.com>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
