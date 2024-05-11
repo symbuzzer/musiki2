@@ -40,15 +40,6 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
 
-    function checkAppLifecycleExemption() {
-        const appid = "musiki2.symbuzzer";
-        const exemptedAppidList = gsettings.lifecycleExemptAppids;
-        if (!exemptedAppidList) {
-            return false;
-        }
-        return exemptedAppidList.includes(appid);
-    }
-
     function setAppLifecycleExemption() {
         const appid = "musiki2.symbuzzer";
         if (!root.checkAppLifecycleExemption()) {
