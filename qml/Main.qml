@@ -45,7 +45,7 @@ MainView {
         if (!appidList) {
             return false;
         }
-        return appidList.includes(musiki2.symbuzzer);
+        return appidList.includes(Qt.application.name);
     }
 
     function setAppLifecycleExemption() {
