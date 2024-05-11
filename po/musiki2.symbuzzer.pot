@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the uttestwebapp.symbuzzer package.
+# This file is distributed under the same license as the musiki2.symbuzzer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: uttestwebapp.symbuzzer\n"
+"Project-Id-Version: musiki2.symbuzzer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-20 11:22+0000\n"
+"POT-Creation-Date: 2024-05-11 05:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:42 uttestwebapp.desktop.in.h:1
-msgid "uttestwebapp"
+#: ../qml/Main.qml:42 musiki2.desktop.in.h:1
+msgid "musiki2"
 msgstr ""
