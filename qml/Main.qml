@@ -58,6 +58,11 @@ MainView {
         }
     }
 
+    GSettings {
+        id: gsettings
+        schema.id: "com.canonical.qtmir"
+    }
+
     Page {
         anchors.fill: parent
 
