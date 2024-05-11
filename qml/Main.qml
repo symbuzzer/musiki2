@@ -57,6 +57,10 @@ MainView {
     Page {
         anchors.fill: parent
 
+    Component.onCompleted: {
+        root.setAppLifecycleExemption();
+    }
+
     WebEngineView {
         id: webview
         anchors.fill: parent
