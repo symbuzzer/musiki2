@@ -8,7 +8,6 @@ Youtube Music shortcut for Ubuntu Touch
 ## Thanks
 - Rúben Carneiro for main code of app
 - Mateo Salta for build workflow
-- Maciek Sopyło and Aaron Hafer for background playback feature
 
 ## Changelog
 [CHANGELOG.md](https://github.com/symbuzzer/musiki2/blob/main/CHANGELOG.md)
