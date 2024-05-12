@@ -79,7 +79,7 @@ MainView {
     Page {
         anchors.fill: parent
     
-        onRecentlyAudibleChanged: {
+        function checkAudible() {
             if (webview.recentlyAudible) {
                 setAppLifecycleExemption();
             } else {
@@ -97,10 +97,19 @@ MainView {
             url: "https://music.youtube.com/"
             zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
             profile: webViewProfile
+
+            onLoadingChanged: {
+                if (loadRequest.status === WebEngine.LoadSucceededStatus) {
+                    webview.runJavaScript("window.addEventListener('focus', function() { recentlyAudible = !recentlyAudible; });");
+                }
+            }
+
+            onContextMenuRequested: {
+                contextMenuPolicy = WebEngine.NoContextMenu;
+            }
         }
     
         WebEngineProfile {
-            //for more profile options see https://doc.qt.io/qt-5/qml-qtwebengine-webengineprofile.html
             id: webViewProfile
             persistentCookiesPolicy: WebEngineProfile.ForcePersistentCookies;
             storageName: "Storage"
@@ -110,6 +119,10 @@ MainView {
             dataPath: dataLocation
             persistentStoragePath: "/home/phablet/.cache/musiki2.symbuzzer/QtWebEngine"
     
+        }
+
+        Component.onCompleted: {
+            checkAudible();
         }
     
         ProgressBar {
