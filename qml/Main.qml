@@ -60,7 +60,7 @@ MainView {
     function unsetAppLifecycleExemption() {
         if (root.checkAppLifecycleExemption()) {
             const appidList = gsettings.lifecycleExemptAppids;
-            const index = appidList.indexOf(musiki2.symbuzzer);
+            const index = appidList.indexOf("musiki2.symbuzzer");
             const newList = appidList.slice();
 
             if (index > -1) {
@@ -81,13 +81,13 @@ MainView {
     
         Component.onCompleted: {
             if (webview.recentlyAudible) {
-                root.setAppLifecycleExemption();
+                setAppLifecycleExemption();
             } else {
-                root.unsetAppLifecycleExemption();
+                unsetAppLifecycleExemption();
             }
         }
     
-        Component.onDestruction: root.unsetAppLifecycleExemption()
+        Component.onDestruction: unsetAppLifecycleExemption()
     
         WebEngineView {
             id: webview
@@ -144,5 +144,5 @@ MainView {
     
                 }
             }
+        }
     }
-}
