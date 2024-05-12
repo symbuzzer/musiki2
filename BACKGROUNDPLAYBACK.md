@@ -8,5 +8,5 @@ As a second and more native option, you can download the Youtube Music installat
 
 Please note that in the second option the application is "unconfident" and has full access to the system. This is a risky situation.
 
-Download:
-https://github.com/symbuzzer/musiki2/releases/latest/download/youtubemusic.click
+
+<a href="[url](https://github.com/symbuzzer/musiki2/releases/latest/download/youtubemusic.click)">Download</a>
