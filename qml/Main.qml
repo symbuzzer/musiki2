@@ -103,17 +103,19 @@ MainView {
             zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
             profile: webViewProfile
 
-        onNavigationRequested: {
-            var url = request.url.toString();
-            if ((url.indexOf('https://music.youtube.com/') === 0 || url.indexOf('https://accounts.google.com/') === 0) && request.isMainFrame) {
-                request.action = WebEngineNavigationRequest.AcceptRequest;
-            } else if (url.indexOf('https://accounts.google.com/') === 0 && request.isMainFrame) {
-                request.action = WebEngineNavigationRequest.AcceptRequest;
-            } else {
-                Qt.openUrlExternally(url);
-                request.action = WebEngineNavigationRequest.IgnoreRequest;
+            onNavigationRequested: {
+                var url = request.url.toString();
+                var regex = /^(https?:\/\/(?:music\.youtube\.com|accounts\.google\.com))/;
+                // Allow navigation to music.youtube.com and accounts.google.com URLs
+                if (regex.test(url) && request.isMainFrame) {
+                    // Open the URL internally
+                    request.action = WebEngineNavigationRequest.AcceptRequest;
+                } else {
+                    // Open the URL externally
+                    Qt.openUrlExternally(url);
+                    request.action = WebEngineNavigationRequest.IgnoreRequest;
+                }
             }
-        }
 
             onRecentlyAudibleChanged: {
                 if (webview.recentlyAudible) {
