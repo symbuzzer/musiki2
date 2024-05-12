@@ -105,7 +105,10 @@ MainView {
 
             onNavigationRequested: {
                 var url = request.url.toString();
-                if (!url.match('(http|https)://music.youtube.com/(.*)') && request.isMainFrame) {
+                // Allow navigation to music.youtube.com and accounts.google.com URLs
+                if ((url.indexOf('https://music.youtube.com/') === 0 || url.indexOf('https://accounts.google.com/') === 0) && request.isMainFrame) {
+                    request.action = WebEngineNavigationRequest.AcceptRequest;
+                } else {
                     Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
