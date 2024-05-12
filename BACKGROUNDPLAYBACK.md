@@ -8,5 +8,5 @@ As a second and more native option, you can download the Youtube Music installat
 
 Please note that in the second option, the application is "unconfident" and has full access to the system. This is a risky situation.
 
-URL of this page is: https://raw.githubusercontent.com/symbuzzer/musiki2/safe/BACKGROUNDPLAYBACK.md
+URL of this page: https://raw.githubusercontent.com/symbuzzer/musiki2/safe/BACKGROUNDPLAYBACK.md
 Download link of the "unconfident" variant of the app: https://github.com/symbuzzer/musiki2/releases/latest/download/youtubemusic.click
