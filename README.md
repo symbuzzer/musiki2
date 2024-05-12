@@ -9,7 +9,7 @@ Youtube Music shortcut for Ubuntu Touch with background playback feature
 - Rúben Carneiro for main code of app
 - Mateo Salta for build workflow
 - Maciek Sopyło, Aaron Hafer and Kugi Eusebio for background playback feature
-- Brian Douglass for limiting webview url
+- Brian Douglass for limiting webview URL
 
 
 ## Changelog
