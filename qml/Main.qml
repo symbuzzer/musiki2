@@ -79,16 +79,11 @@ MainView {
     Page {
         anchors.fill: parent
     
-        Timer {
-            interval: 1000
-            running: true
-            repeat: true
-            onTriggered: {
-                if (webview.recentlyAudible) {
-                    setAppLifecycleExemption();
-                } else {
-                    unsetAppLifecycleExemption();
-                }
+        onRecentlyAudibleChanged: {
+            if (webview.recentlyAudible) {
+                setAppLifecycleExemption();
+            } else {
+                unsetAppLifecycleExemption();
             }
         }
     
