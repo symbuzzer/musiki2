@@ -108,7 +108,6 @@ MainView {
                 var allowedDomains = ['https://music.youtube.com/', 'https://accounts.google.com/', 'https://youtube.com/', 'https://google.com/'];
                 var isAllowed = false;
             
-                // Check if the URL matches any of the allowed domains
                 for (var i = 0; i < allowedDomains.length; i++) {
                     if (url.indexOf(allowedDomains[i]) === 0 && request.isMainFrame) {
                         isAllowed = true;
@@ -118,11 +117,8 @@ MainView {
             
                 // Allow navigation to specified URLs
                 if (isAllowed) {
-                    // Open the URL internally
                     request.action = WebEngineNavigationRequest.AcceptRequest;
                 } else {
-                    // Open the URL externally
-                    Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
             }
