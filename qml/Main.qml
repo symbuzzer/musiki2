@@ -57,6 +57,20 @@ MainView {
         }
     }
 
+    function unsetAppLifecycleExemption() {
+        if (root.checkAppLifecycleExemption()) {
+            const appidList = gsettings.lifecycleExemptAppids;
+            const index = appidList.indexOf("musiki2.symbuzzer");
+            const newList = appidList.slice();
+
+            if (index > -1) {
+              newList.splice(index, 1);
+            }
+
+            gsettings.lifecycleExemptAppids = newList;
+        }
+    }
+
     GSettings {
         id: gsettings
         schema.id: "com.canonical.qtmir"
@@ -64,65 +78,83 @@ MainView {
 
     Page {
         anchors.fill: parent
-
-    Component.onCompleted: {
-        root.setAppLifecycleExemption();
-    }
-
-    WebEngineView {
-        id: webview
-        anchors.fill: parent
-        width: units.gu(45)
-        height: units.gu(75)
-        url: "https://music.youtube.com/"
-        zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
-        profile: webViewProfile
-    }
-
-    WebEngineProfile {
-        //for more profile options see https://doc.qt.io/qt-5/qml-qtwebengine-webengineprofile.html
-        id: webViewProfile
-        persistentCookiesPolicy: WebEngineProfile.ForcePersistentCookies;
-        storageName: "Storage"
-        httpCacheType: WebEngineProfile.DiskHttpCache; //cache qml content to file
-        httpUserAgent: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.196 Mobile Safari/537.36";
-        property alias dataPath: webViewProfile.persistentStoragePath
-        dataPath: dataLocation
-        persistentStoragePath: "/home/phablet/.cache/musiki2.symbuzzer/QtWebEngine"
-
-    }
-
-    ProgressBar {
-        id: loadingIndicator
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
+    
+        Timer {
+            interval: 1000
+            running: true
+            repeat: true
+            onTriggered: {
+                if (webview.recentlyAudible) {
+                    setAppLifecycleExemption();
+                } else {
+                    unsetAppLifecycleExemption();
+                }
+            }
         }
-        //aquire the webviews loading progress for the indicators value
-        value: webview.loadProgress/100
-        //hide loadingIndicator when page has been loaded successfully
-        visible: webview.loadProgress === 100 ? false : true
-    }
+    
+        Component.onDestruction: unsetAppLifecycleExemption()
+    
+        WebEngineView {
+            id: webview
+            anchors.fill: parent
+            width: units.gu(45)
+            height: units.gu(75)
+            url: "https://music.youtube.com/"
+            zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
+            profile: webViewProfile
 
-    Rectangle {
-        //show placeholder while the page is loading to avoid ugly flickering of webview
-        id: webViewPlaceholder
-        anchors {
-            top: loadingIndicator.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+            onNavigationRequested: {
+                var url = request.url.toString();
+                if (!url.match('(http|https)://music.youtube.com/(.*)') && request.isMainFrame) {
+                    Qt.openUrlExternally(url);
+                    request.action = WebEngineNavigationRequest.IgnoreRequest;
+                }
+            }
         }
-        z: 1
-        color: Suru.backgroundColor
-        visible: webview.loadProgress === 100 ? false : true
-
-        BusyIndicator {
-            id: busy
-            anchors.centerIn: parent
-
+    
+        WebEngineProfile {
+            id: webViewProfile
+            persistentCookiesPolicy: WebEngineProfile.ForcePersistentCookies;
+            storageName: "Storage"
+            httpCacheType: WebEngineProfile.DiskHttpCache; //cache qml content to file
+            httpUserAgent: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.196 Mobile Safari/537.36";
+            property alias dataPath: webViewProfile.persistentStoragePath
+            dataPath: dataLocation
+            persistentStoragePath: "/home/phablet/.cache/musiki2.symbuzzer/QtWebEngine"
+    
+        }
+    
+        ProgressBar {
+            id: loadingIndicator
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
+            }
+            //aquire the webviews loading progress for the indicators value
+            value: webview.loadProgress/100
+            //hide loadingIndicator when page has been loaded successfully
+            visible: webview.loadProgress === 100 ? false : true
+        }
+    
+        Rectangle {
+            //show placeholder while the page is loading to avoid ugly flickering of webview
+            id: webViewPlaceholder
+            anchors {
+                top: loadingIndicator.bottom
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+            z: 1
+            color: Suru.backgroundColor
+            visible: webview.loadProgress === 100 ? false : true
+    
+            BusyIndicator {
+                id: busy
+                anchors.centerIn: parent
+    
+                }
             }
         }
     }
-}
