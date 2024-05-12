@@ -102,16 +102,13 @@ MainView {
             url: "https://music.youtube.com/"
             zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
             profile: webViewProfile
-
+            
             onNavigationRequested: {
                 var url = request.url.toString();
-                var regex = /^(https?:\/\/(?:music\.youtube\.com|accounts\.google\.com))/;
-                // Allow navigation to music.youtube.com and accounts.google.com URLs
+                var regex = /^(https?:\/\/(?:music\.youtube\.com|accounts\.google\.com|youtube\.com|google\.com))/;
                 if (regex.test(url) && request.isMainFrame) {
-                    // Open the URL internally
                     request.action = WebEngineNavigationRequest.AcceptRequest;
                 } else {
-                    // Open the URL externally
                     Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
