@@ -1,4 +1,4 @@
-# musiki2
+# musiki2 (confident)
 Youtube Music shortcut for Ubuntu Touch  
 
 ## License
