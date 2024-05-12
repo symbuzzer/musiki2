@@ -79,11 +79,16 @@ MainView {
     Page {
         anchors.fill: parent
     
-        Component.onCompleted: {
-            if (webview.recentlyAudible) {
-                setAppLifecycleExemption();
-            } else {
-                unsetAppLifecycleExemption();
+        Timer {
+            interval: 1000
+            running: true
+            repeat: true
+            onTriggered: {
+                if (webview.recentlyAudible) {
+                    setAppLifecycleExemption();
+                } else {
+                    unsetAppLifecycleExemption();
+                }
             }
         }
     
