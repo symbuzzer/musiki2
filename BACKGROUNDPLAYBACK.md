@@ -7,3 +7,6 @@ The first option is to activate the "Prevent app suspension" setting for Youtube
 As a second and more native option, you can download the Youtube Music installation file from next button to your device, open it with the Open Store and install it. Also title bar and buttons will be hidden if it is installed.
 
 Please note that in the second option, the application is "unconfident" and has full access to the system. This is a risky situation.
+
+URL of this page is: https://raw.githubusercontent.com/symbuzzer/musiki2/safe/BACKGROUNDPLAYBACK.md
+Download link of the "unconfident" variant of the app: https://github.com/symbuzzer/musiki2/releases/latest/download/youtubemusic.click
