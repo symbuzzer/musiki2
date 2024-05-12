@@ -105,20 +105,20 @@ MainView {
             
             onNavigationRequested: {
                 var url = request.url.toString();
-                var allowedDomains = ['https://music.youtube.com/', 'https://accounts.google.com/', 'https://youtube.com/', 'https://google.com/'];
-                var isAllowed = false;
             
-                for (var i = 0; i < allowedDomains.length; i++) {
-                    if (url.indexOf(allowedDomains[i]) === 0 && request.isMainFrame) {
-                        isAllowed = true;
-                        break;
-                    }
-                }
+                var allowedDomains = ['https://music.youtube.com/', 'https://accounts.google.com/'];
+                
+                allowedDomains.push('https://*.youtube.com/');
+                allowedDomains.push('https://*.google.com/');
             
-                // Allow navigation to specified URLs
+                var isAllowed = allowedDomains.some(function(domain) {
+                    return url.indexOf(domain) === 0 && request.isMainFrame;
+                });
+            
                 if (isAllowed) {
                     request.action = WebEngineNavigationRequest.AcceptRequest;
                 } else {
+                    Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
             }
