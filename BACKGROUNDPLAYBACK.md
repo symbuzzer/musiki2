@@ -6,4 +6,4 @@ The first option is to activate the "Prevent app suspension" setting for Youtube
 
 As a second and more native option, you can download the Youtube Music installation file from next button to your device, open it with the Open Store and install it.
 
-Please note that in the second option the application is "unconfident" and has full access to the system. This is a risky situation.
+Please note that in the second option, the application is "unconfident" and has full access to the system. This is a risky situation.
