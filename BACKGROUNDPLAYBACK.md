@@ -4,9 +4,6 @@ For this reason, the Youtube Music application you installed from the Open Store
 
 The first option is to activate the "Prevent app suspension" setting for Youtube Music by installing the UT Tweak Tool application from the Open Store.
 
-As a second and more native option, you can download the Youtube Music installation file here to your device, open it with the Open Store and install it.
+As a second and more native option, you can download the Youtube Music installation file from next button to your device, open it with the Open Store and install it.
 
 Please note that in the second option the application is "unconfident" and has full access to the system. This is a risky situation.
-
-
-<a href="[url](https://github.com/symbuzzer/musiki2/releases/latest/download/youtubemusic.click)">Download</a>
