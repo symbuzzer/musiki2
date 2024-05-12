@@ -53,6 +53,7 @@ MainView {
                     }
                 ]
             }
+        }
 
     WebEngineView {
         id: webview
