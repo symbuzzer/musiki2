@@ -105,10 +105,7 @@ MainView {
             
             onNavigationRequested: {
                 var url = request.url.toString();
-                if (!url.match('(http|https)://(?:www\.)?(?:[a-z0-9-]+\.)*youtube\.com(?:$|\/.*)') &&
-                    !url.match('(http|https)://(?:www\.)?(?:[a-z0-9-]+\.)*google\.com(?:$|\/.*)') &&
-                    !url.match('(http|https)://(?:www\.)?(?:[a-z0-9-]+\.)*music\.youtube\.com(?:$|\/.*)') &&
-                    request.isMainFrame) {
+                if (!url.match('(http|https)://music.youtube.com/(.*)') && !url.match('(http|https)://accounts.google.com/(.*)') && request.isMainFrame) {
                     Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
