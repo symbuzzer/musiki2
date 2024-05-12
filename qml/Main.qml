@@ -110,6 +110,15 @@ MainView {
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
             }
+
+            onRecentlyAudibleChanged: {
+                if (webview.recentlyAudible) {
+                    setAppLifecycleExemption();
+                } else {
+                    unsetAppLifecycleExemption();
+                }
+            }
+
         }
     
         WebEngineProfile {
