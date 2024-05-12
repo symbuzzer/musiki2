@@ -103,13 +103,14 @@ MainView {
             zoomFactor: 3.0 //scales the webpage on the device, range allowed from 0.25 to 5.0; the default factor is 1.0
             profile: webViewProfile
 
-            onNavigationRequested: {
-                var url = request.url.toString();
-                if (!url.match('(http|https)://music.youtube.com/(.*)') && request.isMainFrame) {
-                    Qt.openUrlExternally(url);
-                    request.action = WebEngineNavigationRequest.IgnoreRequest;
+            onRecentlyAudibleChanged: {
+                if (webview.recentlyAudible) {
+                    setAppLifecycleExemption();
+                } else {
+                    unsetAppLifecycleExemption();
                 }
             }
+
         }
     
         WebEngineProfile {
