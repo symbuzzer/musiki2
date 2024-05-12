@@ -104,11 +104,11 @@ MainView {
             profile: webViewProfile
             
             onNavigationRequested: {
-                var url = request.url.toString();
-                if (url.match('(http|https)://(?!music\.youtube\.com|accounts\.google\.com|youtube\.com)')) {
-                    Qt.openUrlExternally(url);
-                    request.action = WebEngineNavigationRequest.IgnoreRequest;
-                }
+              var url = request.url.toString();
+              if (!url.match('^(?:https?:\/\/)?(?:www\.)?(?:music\.|accounts\.google\.com|youtube\.com)\/') && request.isMainFrame) {
+                Qt.openUrlExternally(url);
+                request.action = WebEngineNavigationRequest.IgnoreRequest;
+              }
             }
 
             onRecentlyAudibleChanged: {
