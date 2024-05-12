@@ -105,19 +105,10 @@ MainView {
             
             onNavigationRequested: {
                 var url = request.url.toString();
-            
-                var allowedDomains = ['https://music.youtube.com/', 'https://accounts.google.com/'];
-                
-                allowedDomains.push('https://*.youtube.com/*');
-                allowedDomains.push('https://*.google.com/*');
-            
-                var isAllowed = allowedDomains.some(function(domain) {
-                    return url.indexOf(domain) === 0 && request.isMainFrame;
-                });
-            
-                if (isAllowed) {
-                    request.action = WebEngineNavigationRequest.AcceptRequest;
-                } else {
+                if (!url.match('(http|https)://(?:www\.)?(?:[a-z0-9-]+\.)*youtube\.com(?:$|\/.*)') &&
+                    !url.match('(http|https)://(?:www\.)?(?:[a-z0-9-]+\.)*google\.com(?:$|\/.*)') &&
+                    !url.match('(http|https)://(?:www\.)?(?:[a-z0-9-]+\.)*music\.youtube\.com(?:$|\/.*)') &&
+                    request.isMainFrame) {
                     Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
