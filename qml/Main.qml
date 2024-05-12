@@ -27,7 +27,6 @@ import Morph.Web 0.1
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import QtWebEngine 1.7
-import GSettings 1.0
 
 
 MainView {
@@ -40,34 +39,20 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
 
-    function checkAppLifecycleExemption() {
-        const appidList = gsettings.lifecycleExemptAppids;
-        if (!appidList) {
-            return false;
-        }
-        return appidList.includes(Qt.application.name);
-    }
-
-    function setAppLifecycleExemption() {
-        const appid = "musiki2.symbuzzer";
-        if (!root.checkAppLifecycleExemption()) {
-            const exemptedAppidList = gsettings.lifecycleExemptAppids || [];
-            exemptedAppidList.push(appid);
-            gsettings.lifecycleExemptAppids = exemptedAppidList;
-        }
-    }
-
-    GSettings {
-        id: gsettings
-        schema.id: "com.canonical.qtmir"
-    }
-
     Page {
         anchors.fill: parent
-
-    Component.onCompleted: {
-        root.setAppLifecycleExemption();
-    }
+        header: PageHeader {
+            id: header0
+            title: i18n.tr("Youtube Music")
+            trailingActionBar {
+                actions: [
+                    Action {
+                        iconName: "dialog-question-symbolic"
+                        text: i18n.tr("Help")
+                        onTriggered: Qt.openUrlExternally("https://github.com/symbuzzer/musiki2/blob/safe/README.md")
+                    }
+                ]
+            }
 
     WebEngineView {
         id: webview
