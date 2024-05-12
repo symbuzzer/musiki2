@@ -118,7 +118,6 @@ MainView {
                 if (isAllowed) {
                     request.action = WebEngineNavigationRequest.AcceptRequest;
                 } else {
-                    Qt.openUrlExternally(url);
                     request.action = WebEngineNavigationRequest.IgnoreRequest;
                 }
             }
