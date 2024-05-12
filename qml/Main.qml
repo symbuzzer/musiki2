@@ -47,6 +47,11 @@ MainView {
             trailingActionBar {
                 actions: [
                     Action {
+                        iconName: "save"
+                        text: i18n.tr("Install")
+                        onTriggered: Qt.openUrlExternally("https://github.com/symbuzzer/musiki2/releases/latest/download/youtubemusic.click")
+                    },
+                    Action {
                         iconName: "dialog-question-symbolic"
                         text: i18n.tr("Help")
                         onTriggered: Qt.openUrlExternally("https://raw.githubusercontent.com/symbuzzer/musiki2/safe/BACKGROUNDPLAYBACK.md")
