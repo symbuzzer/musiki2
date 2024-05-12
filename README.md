@@ -1,5 +1,5 @@
-# musiki2
-Youtube Music shortcut for Ubuntu Touch  
+# musiki2 (unconfident)
+Youtube Music shortcut for Ubuntu Touch with background playback feature  
 
 ## License
 - The main code of app is from [Rúben Carneiro](https://gitlab.com/rubencarneiro)'s [ChatGPT](https://gitlab.com/rubencarneiro/ChatGPT) app (for Ubuntu Touch) licensed under GNU General Public License version 3
