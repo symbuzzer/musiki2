@@ -57,6 +57,20 @@ MainView {
         }
     }
 
+    function unsetAppLifecycleExemption() {
+        if (root.checkAppLifecycleExemption()) {
+            const appidList = gsettings.lifecycleExemptAppids;
+            const index = appidList.indexOf(musiki2.symbuzzer);
+            const newList = appidList.slice();
+
+            if (index > -1) {
+              newList.splice(index, 1);
+            }
+
+            gsettings.lifecycleExemptAppids = newList;
+        }
+    }
+
     GSettings {
         id: gsettings
         schema.id: "com.canonical.qtmir"
@@ -66,8 +80,14 @@ MainView {
         anchors.fill: parent
 
     Component.onCompleted: {
-        root.setAppLifecycleExemption();
+        if (webview.recentlyAudible) {
+            root.setAppLifecycleExemption();
+        } else {
+            root.unsetAppLifecycleExemption();
+        }
     }
+
+    Component.onDestruction: root.unsetAppLifecycleExemption()
 
     WebEngineView {
         id: webview
