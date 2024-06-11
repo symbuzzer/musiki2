@@ -14,6 +14,3 @@ Youtube Music shortcut for Ubuntu Touch with background playback feature
 
 ## Changelog
 [CHANGELOG.md](https://github.com/symbuzzer/musiki2/blob/master/CHANGELOG.md)
-
-## Download
-[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/musiki2.symbuzzer)
