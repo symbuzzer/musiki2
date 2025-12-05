@@ -1,0 +1,164 @@
+{
+	"BUILD_DIR" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/mpristestplugin_autogen",
+	"CMAKE_BINARY_DIR" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/shapa/Documents/proj/musiki2",
+	"CMAKE_EXECUTABLE" : "/opt/cmake/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/home/shapa/Documents/proj/musiki2/CMakeLists.txt",
+		"/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/CMakeFiles/3.22.3/CMakeSystem.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/CMakeFiles/3.22.3/CMakeCCompiler.cmake",
+		"/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/CMakeFiles/3.22.3/CMakeCXXCompiler.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeGenericSystem.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Platform/Linux.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Platform/UnixPaths.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeCInformation.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Compiler/GNU-C.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Compiler/GNU.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeCXXInformation.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Compiler/GNU.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake",
+		"/home/shapa/Documents/proj/musiki2/manifest.json.in",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5DBus/Qt5DBusConfigVersion.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5DBus/Qt5DBusConfig.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5DBus/Qt5DBusConfigExtras.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5DBus/Qt5DBusMacros.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/MacroAddFileDependencies.cmake",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5QmlConfigVersion.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5QmlConfig.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Network/Qt5NetworkConfig.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Network/Qt5Network_QConnmanEnginePlugin.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Network/Qt5Network_QNetworkManagerEnginePlugin.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5QmlConfigExtras.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QDebugMessageServiceFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QLocalClientConnectionFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlDebugServerFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlDebuggerServiceFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlInspectorServiceFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugConnectorFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugServiceFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlPreviewServiceFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQmlProfilerServiceFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QQuickProfilerAdapterFactory.cmake",
+		"/usr/lib/aarch64-linux-gnu/cmake/Qt5Qml/Qt5Qml_QTcpServerConnectionFactory.cmake"
+	],
+	"CMAKE_SOURCE_DIR" : "/home/shapa/Documents/proj/musiki2",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"/home/shapa/Documents/proj/musiki2/src/plugin/mprisroot.h",
+			"Mu",
+			"A5X77Q3VFH/moc_mprisroot.cpp",
+			null
+		],
+		[
+			"/home/shapa/Documents/proj/musiki2/src/plugin/mpristest.h",
+			"Mu",
+			"A5X77Q3VFH/moc_mpristest.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/mpristestplugin_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/mpristestplugin_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CORE_LIB",
+		"QT_DBUS_LIB",
+		"QT_NETWORK_LIB",
+		"QT_NO_DEBUG",
+		"QT_QML_LIB",
+		"mpristestplugin_EXPORTS"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/usr/include/aarch64-linux-gnu/qt5",
+		"/usr/include/aarch64-linux-gnu/qt5/QtCore",
+		"/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/aarch64-linux-gnu/qt5/QtDBus",
+		"/usr/include/aarch64-linux-gnu/qt5/QtQml",
+		"/usr/include/aarch64-linux-gnu/qt5/QtNetwork",
+		"/usr/include/c++/9",
+		"/usr/include/aarch64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/aarch64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/aarch64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/opt/cmake/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/mpristestplugin_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 1,
+	"PARSE_CACHE_FILE" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/CMakeFiles/mpristestplugin_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 12,
+	"SETTINGS_FILE" : "/home/shapa/Documents/proj/musiki2/build/aarch64-linux-gnu/app/CMakeFiles/mpristestplugin_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/shapa/Documents/proj/musiki2/src/plugin/mprisroot.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/home/shapa/Documents/proj/musiki2/src/plugin/mpristest.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/home/shapa/Documents/proj/musiki2/src/plugin/plugin.cpp",
+			"Mu",
+			null
+		]
+	],
+	"VERBOSITY" : 0
+}

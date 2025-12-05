@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=Youtube Music
+Name=Youtube Music
 Exec=env QTWEBENGINE_CHROMIUM_FLAGS="--mpris-name=musiki2" qmlscene %U qml/Main.qml
 Icon=assets/logo.png
 Terminal=false

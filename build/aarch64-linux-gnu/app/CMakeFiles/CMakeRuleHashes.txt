@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+f40de263db43a275ce53382444cb2ae1 CMakeFiles/mpristestplugin_autogen
+ac3f3e0f9ada2124dd461b337091b0e8 CMakeFiles/musiki2.desktop
+2d68272ec78a582229f8e5dadd27684f po/CMakeFiles/musiki2.symbuzzer.pot

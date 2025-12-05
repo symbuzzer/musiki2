@@ -1,0 +1,15 @@
+{
+    "name": "musiki2.symbuzzer",
+    "description": "Youtube Music shortcut for Ubuntu Touch ",
+    "architecture": "arm64",
+    "title": "Youtube Music",
+    "hooks": {
+        "musiki2": {
+            "apparmor": "musiki2.apparmor",
+            "desktop":  "musiki2.desktop"
+        }
+    },
+    "version": "1.1.0",
+    "maintainer": "Ali BEYAZ <alipolatbeyaz@gmail.com>",
+    "framework" : "ubuntu-sdk-20.04"
+}

@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.mpris.MediaPlayer2.musiki2
+Exec=/usr/bin/lomiri-app-launch musiki2.symbuzzer_musiki2
