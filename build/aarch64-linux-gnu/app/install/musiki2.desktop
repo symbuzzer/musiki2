@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Youtube Music
-Exec=env QTWEBENGINE_CHROMIUM_FLAGS="--mpris-name=musiki2" qmlscene %U qml/Main.qml
-Icon=assets/logo.png
-Terminal=false
-Type=Application
-X-Lomiri-Touch=true
-X-Lomiri-Splash-Color=#FF0000
-X-Ubuntu-Supported-Orientations=portrait
