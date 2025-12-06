@@ -43,6 +43,10 @@ install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
 install(DIRECTORY qml DESTINATION ${DATA_DIR})
 
+# Install Bluetooth support scripts
+install(PROGRAMS bluetooth_monitor.sh DESTINATION ${DATA_DIR})
+install(PROGRAMS musiki2-launcher.sh DESTINATION ${DATA_DIR})
+
 # Find Qt5 packages for C++ plugin
 find_package(Qt5 COMPONENTS Core DBus Qml REQUIRED)
 
@@ -62,7 +66,7 @@ install(TARGETS mpristestplugin
 
 # Create qmldir file
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/qmldir 
-     "module MprisTest\nplugin mpristestplugin\n")
+     "module MprisTest\nplugin mpristestplugin\nclassname MprisTest 1.1\n")
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qmldir 
         DESTINATION lib/${ARCH_TRIPLET}/MprisTest)
 

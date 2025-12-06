@@ -28,13 +28,14 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import QtWebEngine 1.7
 import GSettings 1.0
-import MprisTest 1.0
+import MprisTest 1.1
 
 
 MainView {
     id: root
     objectName: 'mainView'
     applicationName: 'musiki2.symbuzzer'
+    
     theme.name: "Lomiri.Components.Themes.SuruDark"
     automaticOrientation: true
 
@@ -52,12 +53,12 @@ MainView {
     MprisTest {
         id: mprisTest
         
+        // Register the service when the component is ready
         Component.onCompleted: {
-            console.log("=== MPRIS D-Bus Registration Test ===");
             if (registerService()) {
-                console.log("SUCCESS: D-Bus service registered!");
-                console.log("AppArmor is NOT blocking D-Bus!");
+                console.log("qml: SUCCESS: D-Bus service registered!");
             } else {
+                console.log("qml: FAILURE: Could not register D-Bus service!");
                 console.log("FAILED: Could not register D-Bus service");
                 console.log("AppArmor might be blocking D-Bus");
             }
@@ -172,10 +173,10 @@ MainView {
             onRecentlyAudibleChanged: {
                 if (webview.recentlyAudible) {
                     setAppLifecycleExemption();
-                    mprisTest.playbackStatus = "Playing";
+                    mprisTest.setPlaybackStatus("Playing");
                 } else {
                     unsetAppLifecycleExemption();
-                    mprisTest.playbackStatus = "Paused";
+                    mprisTest.setPlaybackStatus("Paused");
                 }
             }
 

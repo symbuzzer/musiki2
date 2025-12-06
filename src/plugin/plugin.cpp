@@ -9,7 +9,8 @@ class MprisTestPlugin : public QQmlExtensionPlugin {
 public:
     void registerTypes(const char *uri) override {
         Q_ASSERT(uri == QLatin1String("MprisTest"));
-        qmlRegisterType<MprisTest>(uri, 1, 0, "MprisTest");
+        // @uri MprisTest
+        qmlRegisterType<MprisTest>(uri, 1, 1, "MprisTest");
     }
 };
 

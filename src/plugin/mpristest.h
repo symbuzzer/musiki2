@@ -6,7 +6,10 @@
 
 class MprisTest : public QObject {
     Q_OBJECT
+    // CRITICAL: We need BOTH interfaces for MPRIS to work!
+    Q_CLASSINFO("D-Bus Interface", "org.mpris.MediaPlayer2")
     Q_CLASSINFO("D-Bus Interface", "org.mpris.MediaPlayer2.Player")
+    Q_CLASSINFO("D-Bus Interface:org.freedesktop.DBus.Properties", "GetAll")
     
     // Root MediaPlayer2 properties
     Q_PROPERTY(QString DesktopEntry READ desktopEntry CONSTANT)
@@ -25,6 +28,9 @@ class MprisTest : public QObject {
 public:
     explicit MprisTest(QObject *parent = nullptr);
     Q_INVOKABLE bool registerService();
+    
+    // DBus Properties interface implementation
+    Q_INVOKABLE QVariantMap GetAll(const QString &interface_name);
     
     // Root MediaPlayer2 property getters
     QString desktopEntry() const { return "musiki2.symbuzzer_musiki2_1.1.0"; }

@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Youtube Music
-Exec=env QTWEBENGINE_CHROMIUM_FLAGS="--mpris-name=musiki2" qmlscene %U qml/Main.qml
+Exec=env QT_LOGGING_RULES="qt.multimedia.mpris=false" QTWEBENGINE_CHROMIUM_FLAGS="--disable-features=MediaSessionService" bash -c "nohup bluetooth_monitor.sh >/dev/null 2>&1 & exec qmlscene %U qml/Main.qml"
 Icon=assets/logo.png
 Terminal=false
 Type=Application
