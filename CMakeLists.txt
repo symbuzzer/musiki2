@@ -45,7 +45,7 @@ install(DIRECTORY qml DESTINATION ${DATA_DIR})
 
 # Install Bluetooth support scripts
 install(PROGRAMS bluetooth_monitor.sh DESTINATION ${DATA_DIR})
-install(PROGRAMS musiki2-launcher.sh DESTINATION ${DATA_DIR})
+install(PROGRAMS launcher.sh DESTINATION ${DATA_DIR})
 
 # Find Qt5 packages for C++ plugin
 find_package(Qt5 COMPONENTS Core DBus Qml REQUIRED)
