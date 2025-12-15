@@ -43,6 +43,38 @@ install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
 install(DIRECTORY qml DESTINATION ${DATA_DIR})
 
+# Install Bluetooth support scripts
+install(PROGRAMS bluetooth_monitor.sh DESTINATION ${DATA_DIR})
+install(PROGRAMS launcher.sh DESTINATION ${DATA_DIR})
+
+# Find Qt5 packages for C++ plugin
+find_package(Qt5 COMPONENTS Core DBus Qml REQUIRED)
+
+# Build minimal MPRIS test plugin
+set(PLUGIN_SOURCES
+    src/plugin/mpristest.cpp
+    src/plugin/mprisroot.cpp
+    src/plugin/plugin.cpp
+)
+
+add_library(mpristestplugin SHARED ${PLUGIN_SOURCES})
+target_link_libraries(mpristestplugin Qt5::Core Qt5::DBus Qt5::Qml)
+
+# Install plugin
+install(TARGETS mpristestplugin 
+        DESTINATION lib/${ARCH_TRIPLET}/MprisTest)
+
+# Create qmldir file
+file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/qmldir 
+     "module MprisTest\nplugin mpristestplugin\nclassname MprisTest 1.1\n")
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qmldir 
+        DESTINATION lib/${ARCH_TRIPLET}/MprisTest)
+
+# Install D-Bus service file for MPRIS discovery
+install(FILES org.mpris.MediaPlayer2.musiki2.service
+        DESTINATION share/dbus-1/services)
+
+
 # Translations
 file(GLOB_RECURSE I18N_SRC_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po qml/*.qml qml/*.js)
 list(APPEND I18N_SRC_FILES ${DESKTOP_FILE_NAME}.in.h)

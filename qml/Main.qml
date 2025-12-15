@@ -28,17 +28,84 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import QtWebEngine 1.7
 import GSettings 1.0
+import MprisTest 1.1
 
 
 MainView {
     id: root
     objectName: 'mainView'
     applicationName: 'musiki2.symbuzzer'
+    
     theme.name: "Lomiri.Components.Themes.SuruDark"
     automaticOrientation: true
 
     width: units.gu(45)
     height: units.gu(75)
+
+    // Set fixed MPRIS service name for system media controls
+    Component.onCompleted: {
+        // This must be set before WebEngine creates the MPRIS service
+        // Note: This might not work in QML, may need to be set at app launch
+        console.log("musiki2 app started");
+    }
+
+    // MINIMAL TEST: Try to register D-Bus service
+    MprisTest {
+        id: mprisTest
+        
+        // Register the service when the component is ready
+        Component.onCompleted: {
+            if (registerService()) {
+                console.log("qml: SUCCESS: D-Bus service registered!");
+            } else {
+                console.log("qml: FAILURE: Could not register D-Bus service!");
+                console.log("FAILED: Could not register D-Bus service");
+                console.log("AppArmor might be blocking D-Bus");
+            }
+        }
+        
+        onPlayRequested: {
+            console.log("★ Play requested from D-Bus");
+            webview.runJavaScript(
+                "document.querySelector('.play-pause-button').click();"
+            );
+        }
+        
+        onPauseRequested: {
+            console.log("★ Pause requested from D-Bus");
+            webview.runJavaScript(
+                "document.querySelector('.play-pause-button').click();"
+            );
+        }
+        
+        onPlayPauseRequested: {
+            console.log("★ PlayPause requested from D-Bus");
+            webview.runJavaScript(
+                "document.querySelector('.play-pause-button').click();"
+            );
+        }
+        
+        onNextRequested: {
+            console.log("★ Next requested from D-Bus");
+            webview.runJavaScript(
+                "document.querySelector('.next-button').click();"
+            );
+        }
+        
+        onPreviousRequested: {
+            console.log("★ Previous requested from D-Bus");
+            webview.runJavaScript(
+                "document.querySelector('.previous-button').click();"
+            );
+        }
+        
+        onStopRequested: {
+            console.log("★ Stop requested from D-Bus");
+            webview.runJavaScript(
+                "document.querySelector('.play-pause-button').click();"
+            );
+        }
+    }
 
     function checkAppLifecycleExemption() {
         const appidList = gsettings.lifecycleExemptAppids;
@@ -106,10 +173,21 @@ MainView {
             onRecentlyAudibleChanged: {
                 if (webview.recentlyAudible) {
                     setAppLifecycleExemption();
+                    mprisTest.setPlaybackStatus("Playing");
                 } else {
                     unsetAppLifecycleExemption();
+                    mprisTest.setPlaybackStatus("Paused");
                 }
             }
+
+            // Inject script to handle media keys from MPRIS
+            userScripts: [
+                WebEngineScript {
+                    injectionPoint: WebEngineScript.DocumentReady
+                    worldId: WebEngineScript.MainWorld
+                    sourceUrl: Qt.resolvedUrl("mediakeys.js")
+                }
+            ]
 
         }
     
