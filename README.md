@@ -6,6 +6,7 @@ Youtube Music shortcut for Ubuntu Touch with background playback feature
 - The [build workflow](https://github.com/symbuzzer/musiki2/blob/master/.github/workflows/clickable.yml) is from [Mateo Salta](https://github.com/mateosalta)'s [cuddly-bassoon](https://github.com/mateosalta/cuddly-bassoon) app licensed under GNU General Public License version 3
 
 ## Thanks
+- Shapa7276 for system integration *(sound indicator, headphone commands etc.)*
 - Rúben Carneiro for main code of app
 - Mateo Salta for build workflow
 - Maciek Sopyło, Aaron Hafer and Kugi Eusebio for background playback feature
@@ -40,3 +41,4 @@ This bridge is designed to be modular. To use it in another app, you would need 
 2.  Update the service name in `mpristest.cpp` and `mpristest.h`.
 3.  Update the `DesktopEntry` property to match your app's ID.
 4.  Connect the QML signals to your WebView's JavaScript logic.
+
