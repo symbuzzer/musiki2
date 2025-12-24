@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Youtube Music
-Exec=env QT_LOGGING_RULES="qt.multimedia.mpris=true" ./launcher.sh %U
+Exec=./launcher.sh %U
 Icon=assets/logo.png
 Terminal=false
 Type=Application
