@@ -1,3 +1,6 @@
+## v1.2.1
+- Removed unnecessary files by Shapa7276
+
 ## v1.2.0
 - Added system integrations like sound indicator, playback controls etc. by Shapa7276
 
