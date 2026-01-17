@@ -95,21 +95,40 @@ MainView {
             playbackMode: Playlist.Loop
             
             onCurrentIndexChanged: {
-                if (root.ignoreCommands || currentIndex === -1 || currentIndex === 1) return;
+                console.log("Playlist currentIndexChanged fired! Index:", currentIndex, "ignoreCommands:", root.ignoreCommands);
+                
+                if (root.ignoreCommands) {
+                    console.log("Ignoring command due to ignoreCommands flag");
+                    return;
+                }
+                
+                if (currentIndex === -1) {
+                    console.log("Ignoring invalid index -1");
+                    return;
+                }
+                
+                if (currentIndex === 1) {
+                    console.log("Already at middle position (1), no action needed");
+                    return;
+                }
                 
                 console.log("System UI command detected, index:", currentIndex);
                 if (currentIndex === 2) {
-                    console.log("Forwarding NEXT");
+                    console.log("Forwarding NEXT to YouTube Music");
                     webview.runJavaScript("window.mediaControlHandler.next()");
                 } else if (currentIndex === 0) {
-                    console.log("Forwarding PREVIOUS");
+                    console.log("Forwarding PREVIOUS to YouTube Music");
                     webview.runJavaScript("window.mediaControlHandler.previous()");
                 }
                 
                 // Reset to middle index (1) immediately
+                console.log("Resetting playlist to middle position");
                 root.ignoreCommands = true;
                 dummyPlaylist.currentIndex = 1;
-                Qt.callLater(function() { root.ignoreCommands = false; });
+                Qt.callLater(function() { 
+                    root.ignoreCommands = false;
+                    console.log("ignoreCommands flag cleared");
+                });
             }
         }
         
@@ -235,6 +254,7 @@ MainView {
                     console.log("Page loaded successfully, calling injectMediaControlScript");
                     console.log("Function exists?", typeof mainPage.injectMediaControlScript);
                     mainPage.injectMediaControlScript();
+                    mainPage.injectUIFixes();
                     console.log("Media Session API handlers injected");
                 } else if (loadRequest.status === WebEngineView.LoadFailedStatus) {
                     console.log("Page load FAILED:", loadRequest.errorString);
@@ -398,29 +418,53 @@ MainView {
                             if (pauseButton) pauseButton.click();
                         },
                         next: function() {
-                            var nextButton = document.querySelector('button[aria-label="Next track"]') || 
-                                           document.querySelector('button[aria-label="Next"]') || 
-                                           document.querySelector('button[aria-label="next"]') ||
-                                           document.querySelector('.next-button') ||
-                                           document.querySelector('tp-yt-paper-icon-button[aria-label="Next"]');
+                            console.log('NEXT function called');
+                            var allButtons = document.querySelectorAll('ytmusic-player-bar button, ytmusic-player-bar tp-yt-paper-icon-button');
+                            var nextButton = null;
+                            
+                            for (var i = 0; i < allButtons.length; i++) {
+                                var label = (allButtons[i].getAttribute('aria-label') || '').toLowerCase();
+                                var title = (allButtons[i].getAttribute('title') || '').toLowerCase();
+                                if (label.includes('next') || title.includes('next')) {
+                                    nextButton = allButtons[i];
+                                    console.log('Found NEXT button - aria-label:', allButtons[i].getAttribute('aria-label'));
+                                    break;
+                                }
+                            }
+                            
                             if (nextButton) {
-                                console.log('Clicking NEXT button');
                                 nextButton.click();
+                                console.log('NEXT button clicked');
                             } else {
-                                console.log('NEXT button not found by any selector');
+                                console.log('NEXT button NOT found. Available buttons:');
+                                for (var j = 0; j < allButtons.length; j++) {
+                                    console.log('  [' + j + '] aria-label:', allButtons[j].getAttribute('aria-label'));
+                                }
                             }
                         },
                         previous: function() {
-                            var prevButton = document.querySelector('button[aria-label="Previous track"]') || 
-                                           document.querySelector('button[aria-label="Previous"]') || 
-                                           document.querySelector('button[aria-label="previous"]') ||
-                                           document.querySelector('.previous-button') ||
-                                           document.querySelector('tp-yt-paper-icon-button[aria-label="Previous"]');
+                            console.log('PREVIOUS function called');
+                            var allButtons = document.querySelectorAll('ytmusic-player-bar button, ytmusic-player-bar tp-yt-paper-icon-button');
+                            var prevButton = null;
+                            
+                            for (var i = 0; i < allButtons.length; i++) {
+                                var label = (allButtons[i].getAttribute('aria-label') || '').toLowerCase();
+                                var title = (allButtons[i].getAttribute('title') || '').toLowerCase();
+                                if (label.includes('previous') || label.includes('prev') || title.includes('previous') || title.includes('prev')) {
+                                    prevButton = allButtons[i];
+                                    console.log('Found PREVIOUS button - aria-label:', allButtons[i].getAttribute('aria-label'));
+                                    break;
+                                }
+                            }
+                            
                             if (prevButton) {
-                                console.log('Clicking PREVIOUS button');
                                 prevButton.click();
+                                console.log('PREVIOUS button clicked');
                             } else {
-                                console.log('PREVIOUS button not found by any selector');
+                                console.log('PREVIOUS button NOT found. Available buttons:');
+                                for (var j = 0; j < allButtons.length; j++) {
+                                    console.log('  [' + j + '] aria-label:', allButtons[j].getAttribute('aria-label'));
+                                }
                             }
                         }
                     };
